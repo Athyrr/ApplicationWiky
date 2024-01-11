@@ -1,0 +1,32 @@
+﻿@model Article
+
+<h2>Edit Article</h2>
+
+<form asp-action="EditArticle">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Theme"></label>
+        <input asp-for="Theme" class="form-control" />
+        <span asp-validation-for="Theme" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <textarea asp-for="Author" class="form-control"></textarea>
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CreatedAt"></label>
+        <input type="date" asp-for="CreatedAt" class="form-control"></input>
+        <span asp-validation-for="CreatedAt" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

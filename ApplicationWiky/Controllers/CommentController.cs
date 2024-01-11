@@ -1,5 +1,4 @@
-﻿using Business;
-using Business.Contracts;
+﻿using Business.Contracts;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +29,7 @@ namespace ApplicationWiky.Controllers
         {
             await _commentBusiness.CreateCommentAsync(comment);  
 
-            return RedirectToAction("Details","Article", new { id = comment.Id });
+            return RedirectToAction("Index");
         }
 
     }

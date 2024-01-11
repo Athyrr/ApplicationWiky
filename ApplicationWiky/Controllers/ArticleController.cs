@@ -47,5 +47,24 @@ namespace ApplicationWiky.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditArticle(int id)
+        {
+            Article article= await _articleBusiness.GetArticleAsync(id);
+            return View(article);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditArticle(Article article)
+        {
+
+            Article articleToEdit = await _articleBusiness.GetArticleAsync(article.Id);
+            
+            TempData["info"] = "Article modifié";
+
+            return RedirectToAction("Details", new { id = articleToEdit.Id });
+        }
+
     }
 }

@@ -14,7 +14,8 @@ namespace Entities
         public DateTime EditedAt { get; set; }
         [StringLength(100)]
         public string? Content { get; set; }
-        [ForeignKey("Id")]
+        [ForeignKey("Article")]
+        public int ArticleId { get; set; }
 
         //[Remote("","",ErrorMessage = "L'article doit être unique")]
         public Article? Article { get; set; }

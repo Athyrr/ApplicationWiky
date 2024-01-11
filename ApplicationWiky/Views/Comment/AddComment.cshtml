@@ -1,0 +1,14 @@
+﻿@model Comment
+
+
+<form asp-action="AddComment">
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Author">Auteur</label>
+    <input asp-for="Author" placeholder="Auteur du commentaire"/>
+
+    <label asp-for="Content">Contenu</label>
+    <input asp-for="Content" />
+
+    <button>Ajouter</button>
+</form>
