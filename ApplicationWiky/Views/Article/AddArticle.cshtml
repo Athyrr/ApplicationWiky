@@ -1,0 +1,28 @@
+﻿@model Article
+
+<form asp-action="AddArticle">
+    <div class="mb-3">
+        <label asp-for="Theme" class="form-label">Thème</label>
+        <input type="text" class="form-control" asp-for="Theme" placeholder="Indiquez le thème">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label">Author</label>
+        <input type="text" class="form-control" asp-for="Author" placeholder="Indiquez l'auteur">
+    </div>
+    <div class="mb-3">
+        <label asp-for="CreatedAt" class="form-label">CreationDate</label>
+        <input type="date" class="form-control" asp-for="CreatedAt" placeholder="Indiquez la date de création">
+    </div>
+    <div class="mb-3">
+        <label asp-for="EditedAt" class="form-label">EditionDate</label>
+        <input type="date" class="form-control" asp-for="EditedAt" placeholder="Indiquez la date de création">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label">Contenu</label>
+        <input type="text" class="form-control" asp-for="Content" placeholder="Indiquez le contenu">
+    </div>
+    
+    <button id="liveAlertBtn" type="submit" class="btn btn-primary">Ajouter</button>
+    <div id="liveAlertPlaceholder"></div>
+
+</form>
