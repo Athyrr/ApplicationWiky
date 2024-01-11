@@ -28,7 +28,7 @@ namespace ApplicationWiky.Controllers
         [HttpPost]
         public async Task<IActionResult> AddComment(Comment comment)
         {
-            await _commentBusiness.CreateCommentAsync(comment);
+            await _commentBusiness.CreateCommentAsync(comment);  
 
             return RedirectToAction("Details","Article", new { id = comment.Id });
         }
