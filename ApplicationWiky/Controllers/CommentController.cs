@@ -48,6 +48,16 @@ namespace ApplicationWiky.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public async Task<IActionResult> RemoveCommentWithAjax(int id)
+        {
+            await _commentBusiness.DeleteCommentAsync(id);
+
+            return RedirectToAction("Index");
+        }
+
+
+        
 
     }
 }

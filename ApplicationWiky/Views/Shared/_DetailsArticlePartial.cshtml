@@ -1,0 +1,41 @@
+﻿@model Article
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Thème</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Date de creation</th>
+            <th scope="col">Date d'édition</th>
+            <th scope="col">Contenu</th>
+            <th scope="col">Commentaires</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <th scope="row">1</th>
+            <td>@Model.Id</td>
+            <td>@Model.Theme</td>
+            <td>@Model.Author</td>
+            <td>@Model.CreatedAt</td>
+            <td>@Model.EditedAt</td>
+            <td>@Model.Content</td>
+
+            <td>
+                <a class="btn btn-primary" asp-controller="Comment" asp-action="AddComment" asp-route-articleId="@Model.Id">Ajouter commentaire</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <partial name="_AddCommentPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+</div>
+
+<a class="btn btn-primary" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer</a>
+<a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste commentaires</a>
+

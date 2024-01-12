@@ -41,8 +41,6 @@ namespace ApplicationWiky.Controllers
 
                 return RedirectToAction("Details", new { id = article.Id });
             }
-
-
         }
 
         [HttpGet]
