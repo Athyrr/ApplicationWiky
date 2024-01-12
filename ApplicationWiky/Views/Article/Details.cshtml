@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">Thème</th>
             <th scope="col">Auteur</th>
             <th scope="col">Date de creation</th>
@@ -23,14 +24,20 @@
             <td>@Model.CreatedAt</td>
             <td>@Model.EditedAt</td>
             <td>@Model.Content</td>
+            
             <td>
-                <a class="btn btn-primary" asp-controller="Comment" asp-action="AddComment">Ajouter commentaire</a>
+                <a class="btn btn-primary" asp-controller="Comment" asp-action="AddComment" asp-route-articleId="@Model.Id">Ajouter commentaire</a>
             </td>
         </tr>
     </tbody>
 </table>
+
+<div>
+    <partial name="_AddCommentPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+</div>
+
 <a class="btn btn-primary" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer</a>
-<a class="btn btn-primary" asp-controller="Comment" asp-action="Index"></a>
+<a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste commentaires</a>
 
 
 

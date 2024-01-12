@@ -1,0 +1,26 @@
+﻿
+<h4 class="mb-3">Chercheur hautement qualifié</h4>
+
+<form asp-controller="Article" asp-action="SearchByAuthor" class="mb-5">
+    <div class="mb-3">
+        <label class="form-label">Par auteur</label>
+        <input name="search" class="form-control" placeholder="Auteur" />
+        <button type="submit">Rechercher</button>
+    </div>
+</form>
+
+<form asp-controller="Article" asp-action="SearchByDate" class="mb-5">
+    <div class="mb-3">
+        <label class="form-label">Par date de création</label>
+        <input name="search" class="form-control" placeholder="Date de création" />
+        <button type="submit">Rechercher</button>
+    </div>
+</form>
+
+<form asp-controller="Article" asp-action="SearchById" class="mb-5">
+    <div class="mb-3">
+        <label class="form-label">Par Id</label>
+        <input name="search" class="form-control" placeholder="Id" />
+        <button type="submit">Rechercher</button>
+    </div>
+</form>

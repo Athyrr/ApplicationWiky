@@ -1,0 +1,20 @@
+﻿@model Comment
+
+<h4 class="mb-3">Ajouter un commentaire</h4>
+
+<form asp-controller="Comment" asp-action="AddComment" class="mb-5">
+    <input type="hidden" asp-for="ArticleId" />
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label">Auteur</label>
+        <input asp-for="Author" class="form-control" placeholder="Auteur du commentaire" />
+    </div>
+
+    <div class="mb-3 ">
+        <label asp-for="Content" class="form-label">Contenu</label>
+        <input asp-for="Content" class="form-control" placeholder="Contenu" />
+    </div>
+
+    <button class="btn btn-primary">Ajouter</button>
+</form>
+
+

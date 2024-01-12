@@ -1,4 +1,5 @@
-﻿using Business.Contracts;
+﻿using Business;
+using Business.Contracts;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,19 +16,35 @@ namespace ApplicationWiky.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Index()
-            =>  View(await _commentBusiness.GetCommentListAsync());
+            => View(await _commentBusiness.GetCommentListAsync());
 
 
         [HttpGet]
-        public async Task<IActionResult> AddComment()
-        {
-            return View();
-        }
+        public async Task<IActionResult> AddComment(int articleId)
+            => View();
+
 
         [HttpPost]
         public async Task<IActionResult> AddComment(Comment comment)
         {
-            await _commentBusiness.CreateCommentAsync(comment);  
+            if (!ModelState.IsValid)
+            {
+                return View(comment); 
+            }
+            else
+            {
+                await _commentBusiness.CreateCommentAsync(comment);
+
+            return RedirectToAction("Index");
+            }
+
+            
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RemoveComment(int id)
+        {
+            await _commentBusiness.DeleteCommentAsync(id);
 
             return RedirectToAction("Index");
         }

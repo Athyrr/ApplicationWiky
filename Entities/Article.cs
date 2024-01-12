@@ -15,8 +15,8 @@ namespace Entities
         //Unique
         public string? Theme { get; set; }
 
-        [Required]
-        [StringLength(30)]
+        [Required(ErrorMessage = "Champ requis")]
+        [StringLength(30,ErrorMessage ="Le nom de l'auteur ne doit pas excéder 30 caratères !")]
         public string? Author { get; set; }
 
         public DateTime CreatedAt { get; set; }

@@ -20,6 +20,9 @@ namespace Business
 
         public async Task CreateCommentAsync(Comment comment)
         {
+            comment.CreatedAt = DateTime.Now;
+            comment.EditedAt = DateTime.Now;
+
             await _commentRepository.CreateCommentAsync(comment);
         }
 
@@ -32,13 +35,17 @@ namespace Business
             var comment = await _commentRepository.GetCommentAsync(id);
             if (comment is null)
             {
-                throw new Exception("Aucun message à supprimer");
+                throw new Exception("Aucun commentaire à supprimer");
             }
             return comment;
         }
 
         public async Task EditCommentAsync(Comment comment)
-            => await _commentRepository.EditCommentAsync(comment);
+        {
+            comment.EditedAt = DateTime.Now;
+
+            await _commentRepository.EditCommentAsync(comment);
+        }
 
         public async Task DeleteCommentAsync(int id)
         {

@@ -7,9 +7,9 @@
             <th scope="col">ID</th>
             <th scope="col">Theme</th>
             <th scope="col">Author</th>
+            <th scope="col">Content</th>
             <th scope="col">CreationDate</th>
             <th scope="col">EditionDate</th>
-            <th scope="col">Content</th>
             <th scope="col">Comments</th>
         </tr>
     </thead>
@@ -21,15 +21,15 @@
                 <td>@article.Id</td>
                 <td>@article.Theme</td>
                 <td>@article.Author</td>
+                <td>@article.Content</td>
                 <td>@article.CreatedAt</td>
                 <td>@article.EditedAt</td>
-                <td>@article.Content</td>
                 <td>@article.Comments</td>
                 <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@article.Id">Details</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" asp-action="RemoveArticle" asp-route-id="@article.Id">Supprimer</a>
+                    <a class="btn btn-danger" asp-action="RemoveArticle" asp-route-id="@article.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
                 </td>
 
             </tr>
