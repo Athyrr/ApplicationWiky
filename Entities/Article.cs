@@ -13,6 +13,8 @@ namespace Entities
         [Key]
         public int Id { get; set; }
 
+        //Creer l'action du controller !!!
+
         //Unique
         [Remote("IsThemeUnique", "Article", ErrorMessage = "Le thème doit être unique.")]
         public string? Theme { get; set; }
