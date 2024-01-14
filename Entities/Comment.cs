@@ -12,6 +12,7 @@ namespace Entities
         public string? Author { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime EditedAt { get; set; }
+
         [StringLength(100, ErrorMessage = "Le contenu ne doit pas excéder 100 caratères !")]
         public string? Content { get; set; }
 

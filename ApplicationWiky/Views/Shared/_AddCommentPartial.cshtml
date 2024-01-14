@@ -7,11 +7,15 @@
     <div class="mb-3">
         <label asp-for="Author" class="form-label">Auteur</label>
         <input asp-for="Author" class="form-control" placeholder="Auteur du commentaire" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+
     </div>
 
     <div class="mb-3 ">
         <label asp-for="Content" class="form-label">Contenu</label>
         <input asp-for="Content" class="form-control" placeholder="Contenu" />
+        <span asp-validation-for="Content" class="text-danger"></span>
+
     </div>
 
     <button class="btn btn-primary">Ajouter</button>

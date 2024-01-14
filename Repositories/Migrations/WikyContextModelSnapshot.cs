@@ -57,8 +57,8 @@ namespace Repositories.Migrations
                             Id = 1,
                             Author = "Author 1",
                             Content = "Content 1",
-                            CreatedAt = new DateTime(2024, 1, 12, 10, 56, 46, 386, DateTimeKind.Local).AddTicks(7027),
-                            EditedAt = new DateTime(2024, 1, 12, 10, 56, 46, 386, DateTimeKind.Local).AddTicks(7069)
+                            CreatedAt = new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6566),
+                            EditedAt = new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6607)
                         });
                 });
 

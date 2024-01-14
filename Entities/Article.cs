@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Entities
         public int Id { get; set; }
 
         //Unique
+        [Remote("IsThemeUnique", "Article", ErrorMessage = "Le thème doit être unique.")]
         public string? Theme { get; set; }
 
         [Required(ErrorMessage = "Champ requis")]

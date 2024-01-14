@@ -54,7 +54,7 @@ namespace Repositories.Migrations
             migrationBuilder.InsertData(
                 table: "Articles",
                 columns: new[] { "Id", "Author", "Content", "CreatedAt", "EditedAt", "Theme" },
-                values: new object[] { 1, "Author 1", "Content 1", new DateTime(2024, 1, 12, 9, 23, 29, 609, DateTimeKind.Local).AddTicks(6063), new DateTime(2024, 1, 12, 9, 23, 29, 609, DateTimeKind.Local).AddTicks(6100), null });
+                values: new object[] { 1, "Author 1", "Content 1", new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6566), new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6607), null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_ArticleId",

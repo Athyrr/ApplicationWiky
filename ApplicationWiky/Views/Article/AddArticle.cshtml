@@ -1,13 +1,18 @@
 ﻿@model Article
 
+
 <form asp-action="AddArticle">
     <div class="mb-3">
         <label asp-for="Theme" class="form-label">Thème</label>
         <input type="text" class="form-control" asp-for="Theme" placeholder="Indiquez le thème">
+        <span asp-validation-for="Theme" class="text-danger"></span>
+
     </div>
     <div class="mb-3">
         <label asp-for="Author" class="form-label">Auteur</label>
         <input type="text" class="form-control" asp-for="Author" placeholder="Indiquez l'auteur">
+        <span asp-validation-for="Author" class="text-danger"></span>
+
     </div>
     <div class="mb-3">
         <label asp-for="Content" class="form-label">Contenu</label>

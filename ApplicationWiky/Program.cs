@@ -14,14 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
 builder.Services.AddDbContext<WikyContext>(ob
     => ob.UseSqlServer(connectionString: @"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=WikyApp;Integrated Security=True"));
+
 
 //Home connection
 //Ne marche pas, demander au prof
 //builder.Services.AddDbContext<WikyContext>(ob
 //    => ob.UseSqlServer("Data Source=PC_DE_ATHYRR\\SQLEXPRESS; Initial Catalog=WikyApp; Integrated Security=SSPI; TrustServerCertificate=True"));
 
+
+//Home connection
 //builder.Services.AddDbContext<WikyContext>(ob
 //    => ob.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=WikyApp;Integrated Security=SSPI; TrustServerCertificate=True;"));
 

@@ -12,7 +12,7 @@ using Repositories;
 namespace Repositories.Migrations
 {
     [DbContext(typeof(WikyContext))]
-    [Migration("20240112082329_init")]
+    [Migration("20240114102525_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -60,8 +60,8 @@ namespace Repositories.Migrations
                             Id = 1,
                             Author = "Author 1",
                             Content = "Content 1",
-                            CreatedAt = new DateTime(2024, 1, 12, 9, 23, 29, 609, DateTimeKind.Local).AddTicks(6063),
-                            EditedAt = new DateTime(2024, 1, 12, 9, 23, 29, 609, DateTimeKind.Local).AddTicks(6100)
+                            CreatedAt = new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6566),
+                            EditedAt = new DateTime(2024, 1, 14, 11, 25, 24, 984, DateTimeKind.Local).AddTicks(6607)
                         });
                 });
 
