@@ -51,6 +51,11 @@ namespace Business
             await _articleRepository.DeleteArticleAsync(id);
         }
 
+        public async Task<bool> IsThemeUnique(string theme)
+           => await _articleRepository.IsThemeUnique(theme);
+
+
+
         public async Task<List<Article>> Search(string search)
             => await _articleRepository.Search(search);
 

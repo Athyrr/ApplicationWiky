@@ -10,7 +10,6 @@
             <th scope="col">Content</th>
             <th scope="col">CreationDate</th>
             <th scope="col">EditionDate</th>
-            <th scope="col">Comments</th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -25,7 +24,6 @@
                 <td>@article.Content</td>
                 <td>@article.CreatedAt</td>
                 <td>@article.EditedAt</td>
-                <td>@article.Comments</td>
                 <td>
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@article.Id">Details</a>
                 

@@ -49,6 +49,12 @@ namespace Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<bool> IsThemeUnique(string theme)
+        {
+           return await _context.Articles.AnyAsync(a => a.Theme == theme);
+        }
+
+
         public async Task<List<Article>> Search(string search)
             => await _context.Articles.Where(a =>
             EF.Functions.Like(a.Author, $"%{search}%") ||

@@ -43,7 +43,7 @@ namespace Repositories
 
         public async Task DeleteCommentAsync(int id)
         {
-            Comment comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
+            Comment? comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
             _context.Comments.Remove(comment);
             await _context.SaveChangesAsync();
         }

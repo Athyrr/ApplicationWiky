@@ -35,6 +35,9 @@
 <div>
     <partial name="_AddCommentPartial" model="new Comment{ArticleId = Model.Id}"></partial>
 </div>
+<div class="mb-4">
+    <partial name="_AddCommentAjaxPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+</div>
 
 <a class="btn btn-primary" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer</a>
 <a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste commentaires</a>

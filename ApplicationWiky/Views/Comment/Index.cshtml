@@ -30,7 +30,7 @@
                     <a class="btn btn-danger" asp-controller="Comment" asp-action="RemoveComment" asp-route-id="@comment.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
                 </td>
                 <td>
-                    <a class="btn btn-warning" id="deleteAjax" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer avec Ajax</a>
+                    <a class="btn btn-warning deleteAjax" data-comment-id="@comment.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer avec Ajax</a>
                 </td>
             </tr>
         }
@@ -40,18 +40,23 @@
 
 @section scripts {
     <script>
-        
-
         $(function () {
+            $(".deleteAjax").on('click', function (e) {
+                e.preventDefault();
 
+                var commentId = $(this).data("comment-id");
 
-            $("#deleteAjax").on('click', (e) => {
-                $.post("/Comment/RemoveCommentWithAjax", { name:$/* JSP*/.val()
-                }, function (data) {
-                    alert('Commentaire supprimé avec Ajax')
-                });
+                if (confirm('Êtes-vous sûr de vouloir supprimer ?')) {
+                    $.post("/Comment/RemoveCommentWithAjax", { id: commentId },
+                        function (data) {
+                            alert('Commentaire supprimé avec Ajax');
+                        })
+                        .fail(function (error) {
+                            alert('Une erreur s\'est produite');
+                            console.error(error);
+                        });
+                }
             });
-      
         });
     </script>
 

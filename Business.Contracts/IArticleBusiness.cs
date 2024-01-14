@@ -22,7 +22,10 @@ namespace Business.Contracts
 
         public Task DeleteArticleAsync(int id);
 
-        public  Task<List<Article>> Search(string search);
+        public Task<bool> IsThemeUnique(string theme);
+
+
+        public Task<List<Article>> Search(string search);
 
         public Task<List<Article>> SearchByAuthor(string search);
         public Task<List<Article>> SearchByDate(DateTime search);

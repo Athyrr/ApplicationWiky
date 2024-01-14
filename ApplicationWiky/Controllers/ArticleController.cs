@@ -76,6 +76,10 @@ namespace ApplicationWiky.Controllers
 
         }
 
+        public async Task<IActionResult> IsThemeUnique(string theme) 
+            => Json(await _articleBusiness.IsThemeUnique(theme));
+
+
         [HttpGet]
         public async Task<IActionResult> Search(List<Article> articlesFinded)
         {
@@ -117,6 +121,6 @@ namespace ApplicationWiky.Controllers
             var articlesFinded = await _articleBusiness.SearchById(search);
             return View("Index", articlesFinded);
         }
-      
+
     }
 }

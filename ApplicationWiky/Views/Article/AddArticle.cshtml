@@ -4,22 +4,40 @@
 <form asp-action="AddArticle">
     <div class="mb-3">
         <label asp-for="Theme" class="form-label">Thème</label>
-        <input type="text" class="form-control" asp-for="Theme" placeholder="Indiquez le thème">
+        <input id="ThemeInput" type="text" class="form-control" asp-for="Theme" placeholder="Indiquez le thème">
         <span asp-validation-for="Theme" class="text-danger"></span>
+        <span id="UniqueErrorMessage"></span>
 
     </div>
+
     <div class="mb-3">
         <label asp-for="Author" class="form-label">Auteur</label>
         <input type="text" class="form-control" asp-for="Author" placeholder="Indiquez l'auteur">
         <span asp-validation-for="Author" class="text-danger"></span>
-
     </div>
+
     <div class="mb-3">
         <label asp-for="Content" class="form-label">Contenu</label>
         <input type="text" class="form-control" asp-for="Content" placeholder="Indiquez le contenu">
     </div>
     
-    <button id="liveAlertBtn" type="submit" class="btn btn-primary">Ajouter</button>
-    <div id="liveAlertPlaceholder"></div>
+    <button id="AddBtn" type="submit" class="btn btn-primary">Ajouter</button>
+   
 
 </form>
+
+
+@section scripts{
+
+    <script>
+        $(function () {
+            $("#AddBtn").on('click', (e) => {
+                $.get("/Article/IsThemeUnique", {name: $("#ThemeInput").val()},
+                    function (data) { $("#UniqueErrorMessage").html("Unique :" + data.name) }
+                );
+                $.validator.unobtrusive.parse('form');
+            });
+        });
+        
+    </script>
+}

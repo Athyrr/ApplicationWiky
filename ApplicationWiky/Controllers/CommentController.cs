@@ -29,16 +29,16 @@ namespace ApplicationWiky.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(comment); 
+                return View(comment);
             }
             else
             {
                 await _commentBusiness.CreateCommentAsync(comment);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
-            
+
         }
 
         [HttpGet]
@@ -57,7 +57,15 @@ namespace ApplicationWiky.Controllers
         }
 
 
-        
+        [HttpPost]
+        public async Task<IActionResult> AddCommentWithAjax(Comment comment)
+        {
+            await _commentBusiness.CreateCommentAsync(comment);
+
+            return RedirectToAction("Index");
+        }
+
+
 
     }
 }

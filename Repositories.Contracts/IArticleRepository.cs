@@ -22,6 +22,8 @@ namespace Repositories.Contracts
 
         public Task DeleteArticleAsync(int id);
 
+        public Task<bool> IsThemeUnique(string theme);
+
         public Task<List<Article>> Search(string search);
 
         public  Task<List<Article>> SearchByAuthor(string search);

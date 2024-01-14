@@ -1,0 +1,63 @@
+﻿@model Comment
+
+<h4 class="mb-3">Ajouter un commentaire Ajax</h4>
+
+<form id="addCommentForm">
+
+    <div class="form-group">
+        <input asp-for="ArticleId" id="articleId" type="hidden" />
+        <label for="auteur" class="form-label">Auteur du commentaire</label>
+        <input id="auteur" class="form-control" placeholder="Auteur du commentaire" />
+    </div>
+
+    <div class="form-group">
+       
+
+        <label for="commentContent">Contenu du commentaire :</label>
+        <textarea id="commentContent" class="form-control" placeholder="Commentaire" required></textarea>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Ajouter Commentaire</button>
+</form>
+
+<div id="commentList">
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#addCommentForm").on("submit", function (e) {
+                e.preventDefault();
+
+                var commentContent = $("#commentContent").val();
+
+
+                var articleId = $("#articleId");
+
+                $.post("/Comment/AddCommentWithAjax", { articleId: articleId, content: commentContent },
+                    function (data) {
+                        refreshCommentList();
+                    })
+                    .fail(function (error) {
+                        alert('Une erreur s\'est produite lors de l\'ajout du commentaire.');
+                        console.error(error);
+                    });
+            });
+
+            function refreshCommentList() {
+                var articleId = $("#articleId");
+
+                $.get("/Comment/GetCommentsByArticleId", { articleId: articleId },
+                    function (data) {
+                        $("#commentList").html(data);
+                    })
+                    .fail(function (error) {
+                        alert('Une erreur s\'est produite lors de la récupération de la liste des commentaires.');
+                        console.error(error);
+                    });
+            }
+        });
+    </script>
+}
