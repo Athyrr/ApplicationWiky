@@ -16,6 +16,7 @@ namespace Entities
 
         //Unique
         [Remote("IsThemeUnique", "Article", ErrorMessage = "Le thème doit être unique.")]
+        //[Required(ErrorMessage = "Champ requis")]
         public string? Theme { get; set; }
 
         [Required(ErrorMessage = "Champ requis")]
@@ -26,7 +27,7 @@ namespace Entities
         
         public DateTime EditedAt { get; set; }
         public string? Content { get; set; }
-        public List<Comment>? Comments { get; set; }
+        public List<Comment>? Comments { get; set; } = new List<Comment>() { };
 
     }
 }

@@ -6,7 +6,7 @@ namespace ApplicationWiky.Controllers
 {
     public class ArticleController : Controller
     {
-        IArticleBusiness _articleBusiness;
+        private readonly IArticleBusiness _articleBusiness;
 
         public ArticleController(IArticleBusiness articleBusiness)
         {
@@ -76,23 +76,8 @@ namespace ApplicationWiky.Controllers
 
         }
 
-        public async Task<IActionResult> IsThemeUnique(string theme) 
+        public async Task<IActionResult> IsThemeUnique(string theme)
             => Json(await _articleBusiness.IsThemeUnique(theme));
-
-
-        [HttpGet]
-        public async Task<IActionResult> Search(List<Article> articlesFinded)
-        {
-            return View("Index", articlesFinded);
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Search(string search)
-        {
-            var articlesFinded = await _articleBusiness.Search(search);
-            return RedirectToAction("Search", articlesFinded);
-        }
 
 
         [HttpGet]

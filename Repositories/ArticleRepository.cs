@@ -13,7 +13,7 @@ namespace Repositories
 {
     public class ArticleRepository : IArticleRepository
     {
-        public readonly WikyContext _context;
+        private readonly WikyContext _context;
 
         public ArticleRepository(WikyContext context)
         {
@@ -26,9 +26,9 @@ namespace Repositories
             await _context.SaveChangesAsync();
         }
         public async Task<List<Article>> GetArticleListAsync()
-            => await _context.Articles.ToListAsync();
+            => await _context.Articles.Include(a => a.Comments).ToListAsync();
         public async Task<Article?> GetArticleAsync(int id)
-            => await _context.Articles.FirstOrDefaultAsync(a => a.Id == id);
+            => await _context.Articles.Include(a => a.Comments).FirstOrDefaultAsync(a => a.Id == id);
 
         public async Task EditArticleAsync(Article article)
         {
@@ -44,14 +44,14 @@ namespace Repositories
 
         public async Task DeleteArticleAsync(int id)
         {
-            Article article = await _context.Articles.FirstOrDefaultAsync(a => a.Id == id);
+            Article? article = await _context.Articles.FirstOrDefaultAsync(a => a.Id == id);
             _context.Articles.Remove(article);
             await _context.SaveChangesAsync();
         }
 
         public async Task<bool> IsThemeUnique(string theme)
         {
-           return await _context.Articles.AnyAsync(a => a.Theme == theme);
+            return await _context.Articles.AnyAsync(a => a.Theme == theme);
         }
 
 
@@ -61,6 +61,7 @@ namespace Repositories
             EF.Functions.Like(a.Id.ToString(), $"%{search}%") ||
             EF.Functions.Like(a.CreatedAt.ToString(), $"%{search}%")
             ).ToListAsync();
+
 
         //decouper par methode de recherche
 

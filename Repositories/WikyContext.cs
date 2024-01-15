@@ -30,18 +30,18 @@ namespace Repositories
         }
 
         // Données par défaut
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            List<Article> articles = new()
-            {
-                new Article(){Id = 1,Author = "Author 1", Content = "Content 1", CreatedAt = DateTime.Now, EditedAt = DateTime.Now}
-            };
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    List<Article> articles = new()
+        //    {
+        //        new Article(){Id = 1,Author = "Author 1", Theme = "Theme",Content = "Content 1", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Comments={ } }
+        //    };
 
 
-            modelBuilder.Entity<Article>().HasData(articles);
+        //    modelBuilder.Entity<Article>().HasData(articles);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
     }
 }

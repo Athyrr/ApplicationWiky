@@ -7,7 +7,7 @@ namespace ApplicationWiky.Controllers
 {
     public class CommentController : Controller
     {
-        ICommentBusiness _commentBusiness;
+        private readonly ICommentBusiness _commentBusiness;
 
         public CommentController(ICommentBusiness commentBusiness)
         {

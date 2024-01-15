@@ -32,13 +32,20 @@
     </tbody>
 </table>
 
-<div>
-    <partial name="_AddCommentPartial" model="new Comment{ArticleId = Model.Id}"></partial>
-</div>
-<div class="mb-4">
-    <partial name="_AddCommentAjaxPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <partial name="_AddCommentPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-4">
+            <partial name="_AddCommentAjaxPartial" model="new Comment{ArticleId = Model.Id}"></partial>
+        </div>
+    </div>
 </div>
 
-<a class="btn btn-primary" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer</a>
-<a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste commentaires</a>
+
+<a class="btn btn-warning" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer l'article</a>
+<a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste des commentaires</a>
 

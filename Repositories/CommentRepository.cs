@@ -11,7 +11,7 @@ namespace Repositories
 {
     public class CommentRepository : ICommentRepository
     {
-        public readonly WikyContext _context;
+        private readonly WikyContext _context;
 
         public CommentRepository(WikyContext context)
         {

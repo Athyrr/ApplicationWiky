@@ -23,11 +23,23 @@ namespace ApplicationWiky.Controllers
         public async Task<IActionResult> Index()
            => View(await _articleBusiness.GetLastArticleAsync());
 
-
         public IActionResult Privacy()
         {
             return View();
         }
+
+        public IActionResult SearchView(List<Article> search)
+        {
+            return View(search);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string search)
+        {
+            var articlesFinded = await _articleBusiness.Search(search);
+            return RedirectToAction("SearchView", articlesFinded);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

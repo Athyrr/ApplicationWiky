@@ -1,21 +1,20 @@
 ﻿@model Comment
 
-<h4 class="mb-3">Ajouter un commentaire</h4>
+<h4 class="mb-3-">Ajouter un commentaire</h4>
 
 <form asp-controller="Comment" asp-action="AddComment" class="mb-5">
     <input type="hidden" asp-for="ArticleId" />
     <div class="mb-3">
-        <label asp-for="Author" class="form-label">Auteur</label>
+        <label asp-for="Author" class="form-label">Auteur du commentaire : </label>
         <input asp-for="Author" class="form-control" placeholder="Auteur du commentaire" />
         <span asp-validation-for="Author" class="text-danger"></span>
 
     </div>
 
     <div class="mb-3 ">
-        <label asp-for="Content" class="form-label">Contenu</label>
-        <textarea asp-for="Content" class="form-control" placeholder="Contenu"></textarea>
+        <label asp-for="Content" class="form-label">Contenu du commentaire : </label>
+        <textarea asp-for="Content" class="form-control" placeholder="Commentaire" required></textarea>
         <span asp-validation-for="Content" class="text-danger"></span>
-
     </div>
 
     <button class="btn btn-primary">Ajouter</button>

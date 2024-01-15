@@ -12,7 +12,7 @@ namespace Business
 {
     public class ArticleBusiness : IArticleBusiness
     {
-        public IArticleRepository _articleRepository;
+        private readonly IArticleRepository _articleRepository;
 
         public ArticleBusiness(IArticleRepository articleRepository)
         {

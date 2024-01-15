@@ -26,17 +26,8 @@
 
 </form>
 
+@* 
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+} *@
 
-@section scripts {
-
-    <script>
-        $(function () {
-            $("#AddBtn").on('click', (e) => {
-                $.get("/Article/IsThemeUnique", { name: $("#ThemeInput").val() },
-                    function (data) { $("#UniqueErrorMessage").html("Unique :" + data.name) }
-                );
-                $.validator.unobtrusive.parse('form');
-            });
-        });
-    </script>
-}

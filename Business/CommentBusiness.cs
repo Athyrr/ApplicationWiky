@@ -11,7 +11,7 @@ namespace Business
 {
     public class CommentBusiness : ICommentBusiness
     {
-        public ICommentRepository _commentRepository;
+        private readonly ICommentRepository _commentRepository;
 
         public CommentBusiness(ICommentRepository commentRepository)
         {
