@@ -20,24 +20,23 @@
         <label asp-for="Content" class="form-label">Contenu</label>
         <input type="text" class="form-control" asp-for="Content" placeholder="Indiquez le contenu">
     </div>
-    
+
     <button id="AddBtn" type="submit" class="btn btn-primary">Ajouter</button>
-   
+
 
 </form>
 
 
-@section scripts{
+@section scripts {
 
     <script>
         $(function () {
             $("#AddBtn").on('click', (e) => {
-                $.get("/Article/IsThemeUnique", {name: $("#ThemeInput").val()},
+                $.get("/Article/IsThemeUnique", { name: $("#ThemeInput").val() },
                     function (data) { $("#UniqueErrorMessage").html("Unique :" + data.name) }
                 );
                 $.validator.unobtrusive.parse('form');
             });
         });
-        
     </script>
 }
