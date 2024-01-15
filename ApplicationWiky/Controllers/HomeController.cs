@@ -37,7 +37,7 @@ namespace ApplicationWiky.Controllers
         public async Task<IActionResult> Search(string search)
         {
             var articlesFinded = await _articleBusiness.Search(search);
-            return RedirectToAction("SearchView", articlesFinded);
+            return View("SearchView", articlesFinded);
         }
 
 

@@ -15,8 +15,10 @@ namespace ApplicationWiky.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Index()
-            => View(await _articleBusiness.GetArticleListAsync());
-
+        {
+         
+            return View(await _articleBusiness.GetArticleListAsync());
+        }
 
         [HttpGet]
         public async Task<IActionResult> Details(int id)
@@ -77,7 +79,10 @@ namespace ApplicationWiky.Controllers
         }
 
         public async Task<IActionResult> IsThemeUnique(string theme)
-            => Json(await _articleBusiness.IsThemeUnique(theme));
+        {
+          
+            return  Json(await _articleBusiness.IsThemeUnique(theme));
+        }
 
 
         [HttpGet]

@@ -1,0 +1,64 @@
+﻿@model List<Comment>
+
+<h2>Liste Commentaires </h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Auteur</th>
+            <th>Contenu</th>
+            <th>Date de création</th>
+            <th>Date de création</th>
+            <th>Lien vers article</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@comment.Id</td>
+                <td>@comment.Author</td>
+                <td>@comment.Content</td>
+                <td>@comment.CreatedAt</td>
+                <td>@comment.EditedAt</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Article" asp-action="Details" asp-route-id="@comment.ArticleId">Article</a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-controller="Comment" asp-action="RemoveComment" asp-route-id="@comment.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning deleteAjax" data-comment-id="@comment.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?')">Supprimer avec Ajax</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts {
+    <script>
+        $(function () {
+            $(".deleteAjax").on('click', function (e) {
+                e.preventDefault();
+
+                var commentId = $(this).data("comment-id");
+
+                if (confirm('Êtes-vous sûr de vouloir supprimer ?')) {
+                    $.post("/Comment/RemoveCommentWithAjax", { id: commentId },
+                        function (data) {
+                            alert('Commentaire supprimé avec Ajax');
+                        })
+                        .fail(function (error) {
+                            alert('Une erreur s\'est produite');
+                            console.error(error);
+                        });
+                }
+            });
+        });
+    </script>
+
+}
+

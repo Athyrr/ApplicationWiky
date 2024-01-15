@@ -45,6 +45,8 @@
     </div>
 </div>
 
+<partial name="_GetCommentsListPartial" model="@Model.Comments"></partial>
+
 
 <a class="btn btn-warning" asp-action="EditArticle" asp-route-ID="@Model.Id">Editer l'article</a>
 <a class="btn btn-primary" asp-controller="Comment" asp-action="Index">Liste des commentaires</a>
