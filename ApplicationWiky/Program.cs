@@ -14,14 +14,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
-//builder.Services.AddDbContext<WikyContext>(ob
-//    => ob.UseSqlServer(connectionString: @"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=WikyApp;Integrated Security=True"));
+//Diginamic connection
+builder.Services.AddDbContext<WikyContext>(ob
+    => ob.UseSqlServer(connectionString: @"Data Source=(localdb)\MSSQLLOCALDB;Initial Catalog=WikyApp;Integrated Security=True"));
 
 
 //Home connection
-builder.Services.AddDbContext<WikyContext>(ob
-    => ob.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=WikyApp;Integrated Security=SSPI; TrustServerCertificate=True;"));
+//builder.Services.AddDbContext<WikyContext>(ob
+//    => ob.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=WikyApp;Integrated Security=SSPI; TrustServerCertificate=True;"));
 
 
 builder.Services.AddTransient<IArticleBusiness, ArticleBusiness>();
